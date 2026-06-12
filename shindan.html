@@ -28,7 +28,8 @@
     color: var(--navy);
     font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
     line-height: 1.8;
-    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   /* ─── HEADER ─── */
@@ -88,7 +89,7 @@
   .wrapper {
     max-width: 680px;
     margin: 0 auto;
-    padding: 0 20px 80px;
+    padding: 20px 20px 80px;
   }
 
   /* ─── PROGRESS ─── */
@@ -361,12 +362,6 @@
 </head>
 <body>
 
-<header class="site-header">
-  <p class="eyebrow">30sec Self Check</p>
-  <h1>30秒お悩みチェック<span>✦</span></h1>
-  <p class="lead">5つの質問に答えるだけで、あなたにぴったりのサポートが分かります。<br>気軽にチェックしてみてください♪</p>
-  <div class="divider-ornament"><span class="diamond"></span></div>
-</header>
 
 <div class="wrapper">
   <div id="progress-area" class="progress-area">
@@ -534,6 +529,18 @@ function retryQuiz() {
 }
 
 renderQuestion(0);
+</script>
+
+<script>
+// 親ページにコンテンツの高さを送信してiframeを自動リサイズ
+function sendHeight() {
+  var height = document.body.scrollHeight;
+  window.parent.postMessage({ iframeHeight: height }, '*');
+}
+window.addEventListener('load', sendHeight);
+window.addEventListener('resize', sendHeight);
+var observer = new MutationObserver(sendHeight);
+observer.observe(document.body, { childList: true, subtree: true });
 </script>
 </body>
 </html>
