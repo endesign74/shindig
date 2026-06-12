@@ -330,6 +330,23 @@
     color: var(--navy);
   }
 
+  /* ─── BACK ─── */
+  .back-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 12px 0 0;
+    display: block;
+    transition: all 0.2s ease;
+    letter-spacing: 0.03em;
+  }
+  .back-btn:hover {
+    color: var(--navy);
+  }
+
   /* ─── SCORE PILLS ─── */
   .score-row {
     display: flex;
@@ -365,7 +382,7 @@
 <header class="site-header">
   <p class="eyebrow">30sec Self Check</p>
   <h1>30秒お悩みチェック<span>✦</span></h1>
-  <p class="lead">5つの質問に答えるだけで、<br>あなたにぴったりのサポートが分かります。</p><br>気軽にチェックしてみてください♪</p>
+  <p class="lead">5つの質問に答えるだけで、あなたにぴったりのサポートが分かります。<br>気軽にチェックしてみてください♪</p>
   <div class="divider-ornament"><span class="diamond"></span></div>
 </header>
 
@@ -386,39 +403,39 @@
 <script>
 const questions = [
   {
-    text: "いま、ビジネスで「一番時間がかかっていて、しんどい」と感じるものはどれ？",
+    text: "いま、一番困っていることは？",
     choices: [
-      { label: "A", text: "インスタやブログの画像を作ったり、文章を考えたりすること" },
-      { label: "B", text: "お客さまからの連絡への返信、予約管理、スケジュール調整" },
-      { label: "C", text: "チラシや名刺のデザイン、ホームページの更新や見直し" }
+      { label: "A", text: "何を発信するか考えること" },
+      { label: "B", text: "LINEやホームページなど集客の仕組みを整えること" },
+      { label: "C", text: "投稿作成やメニュー表などのデザイン制作作業をすること" }
     ]
   },
   {
     text: "あなたのお客さまが入ってくる「メインのルート（導線）」はどこ？",
     choices: [
       { label: "A", text: "インスタやブログなどのSNS（だけど、なかなかお申し込みに繋がらない）" },
-      { label: "C", text: "ご紹介やリアルでの出会い（その後HPやLINEを見てくれているか不安）" },
-      { label: "B", text: "どこからお客さまが来ているのか、正直自分でもよく分かっていない" }
+      { label: "B", text: "どこからお客さまが来ているのか、正直自分でもよく分かっていない" },
+      { label: "C", text: "ご紹介やリアルでの出会い（その後HPやLINEを見てくれているか不安）" }
     ]
   },
   {
     text: "「公式LINE」をいま、どんな風に使えている？",
     choices: [
-      { label: "B", text: "アカウントはあるけれど、リッチメニューや配信の使い方が分からない" },
       { label: "A", text: "登録はしてもらえるけれど、そこから先の集客や会話に繋がっていない" },
+      { label: "B", text: "アカウントはあるけれど、リッチメニューや配信の使い方が分からない" },
       { label: "C", text: "そもそもLINEではなく、ホームページやブログ、名刺だけで頑張っている" }
     ]
   },
   {
     text: "あなたの「名刺」や「ホームページ（ブログ）」をパッと見たときの正直な感想は？",
     choices: [
-      { label: "C", text: "メニューや料金、申し込みボタンが分かりづらい（または、そもそもHPがない）" },
       { label: "A", text: "デザインが素人っぽくて、自分のブランディングや世界観に自信が持てない" },
-      { label: "B", text: "内容は悪くないと思うけれど、そこからの問い合わせ対応がすべて手動で忙しすぎる" }
+      { label: "B", text: "内容は悪くないと思うけれど、そこからの問い合わせ対応がすべて手動で忙しすぎる" },
+      { label: "C", text: "メニューや料金、申し込みボタンが分かりづらい（または、そもそもHPがない）" }
     ]
   },
   {
-    text: "もし、プロの「右腕秘書」があなたの隣に仲間入りしたら、まず何をしてほしい？",
+    text: "いま、一番「右腕サポーター」にサポートして欲しいことは？",
     choices: [
       { label: "A", text: "投稿がパッと垢抜けるテンプレートを作って、発信の軸を一緒に整理してほしい！" },
       { label: "B", text: "お問い合わせや予約が自動で回るような、LINEの仕組みを作ってラクにしてほしい！" },
@@ -437,8 +454,8 @@ const results = {
   B: {
     icon: "✦",
     type: "全部ひとりで頑張りすぎタイプ",
-    description: "お客さまの対応、返信、スケジュール管理……毎日の細かい作業があなたの時間とエネルギーを奪っています。「仕組み」があれば、もっと本業に集中できるはず。",
-    recommendation: "公式LINEの構築・ステップ配信による自動化・仕組み化がおすすめです。一度整えてしまえば、あなたが寝ている間もビジネスが動き続ける状態を目指しましょう。"
+     description: "LINEのアカウントはあるけれど、メニューが未設定だったり、一斉配信の仕方が分からずに止まっていませんか？お客さまを迷わせてしまう導線や、手動での個別案内の繰り返しは、あなたの貴重な時間を奪ってしまいます。",
+    recommendation: "見た目が美しいだけでなく、タップするだけで知りたい情報へスムーズに繋がる「リッチメニューの制作」と「公式LINEの導線設計」がおすすめです。登録したお客様が自然と次のステップへ進みたくなる、おもてなしの仕組みを整えましょう。"
   },
   C: {
     icon: "✦",
@@ -453,6 +470,7 @@ const priority = ['B', 'A', 'C'];
 
 let current = 0;
 let scores = { A: 0, B: 0, C: 0 };
+let history = []; // 回答履歴
 
 function renderQuestion(idx) {
   const q = questions[idx];
@@ -461,6 +479,10 @@ function renderQuestion(idx) {
   document.getElementById('progress-text').textContent = `Q${idx + 1} / ${questions.length}`;
   document.getElementById('progress-pct').textContent = `${pct}%`;
   document.getElementById('progress-bar').style.width = `${pct}%`;
+
+  const backBtn = idx > 0
+    ? `<button class="back-btn" onclick="goBack()">← 前の質問に戻る</button>`
+    : '';
 
   area.innerHTML = `
     <div class="question-card">
@@ -474,11 +496,13 @@ function renderQuestion(idx) {
           </button>
         `).join('')}
       </div>
+      ${backBtn}
     </div>
   `;
 }
 
 function selectChoice(label) {
+  history.push(label); // 回答を記録
   scores[label]++;
   current++;
   if (current < questions.length) {
@@ -486,6 +510,15 @@ function selectChoice(label) {
   } else {
     showResult();
   }
+}
+
+function goBack() {
+  if (current <= 0) return;
+  const prevLabel = history.pop(); // 直前の回答を取り消し
+  scores[prevLabel]--;
+  current--;
+  document.getElementById('progress-area').style.display = 'block';
+  renderQuestion(current);
 }
 
 function getWinner() {
@@ -530,6 +563,7 @@ function showResult() {
 function retryQuiz() {
   current = 0;
   scores = { A: 0, B: 0, C: 0 };
+  history = [];
   document.getElementById('progress-area').style.display = 'block';
   renderQuestion(0);
 }
