@@ -346,7 +346,16 @@
   .back-btn:hover {
     color: var(--navy);
   }
-
+ 
+/* ─── RESULT IMAGE ─── */
+.result-image {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  margin: 0 auto 20px;
+  display: block;
+}
+ 
   /* ─── SCORE PILLS ─── */
   .score-row {
     display: flex;
@@ -445,26 +454,29 @@ const questions = [
 ];
 
 const results = {
-  A: {
+   A: {
     icon: "✦",
+    image: "https://endesign74.github.io/shindan/result_a.png",
     type: "発信迷い子タイプ",
     description: "SNSや発信まわりのモヤモヤが積み重なっているようです。デザインも文章も「なんとなく自己流」で続けてきたからこそ、発信の軸がブレてしまうのは当然のこと。",
     recommendation: "SNSのデザインテンプレート整備や、ブランドの発信軸作りのサポートがおすすめです。垢抜けた発信で、あなたらしい世界観をしっかり伝えていきましょう。"
   },
   B: {
     icon: "✦",
+    image: "https://endesign74.github.io/shindan/result_b.png",
     type: "全部ひとりで頑張りすぎタイプ",
-     description: "LINEのアカウントはあるけれど、メニューが未設定だったり、一斉配信の仕方が分からずに止まっていませんか？お客さまを迷わせてしまう導線や、手動での個別案内の繰り返しは、あなたの貴重な時間を奪ってしまいます。",
+    description: "LINEのアカウントはあるけれど、メニューが未設定だったり、一斉配信の仕方が分からずに止まっていませんか？お客さまを迷わせてしまう導線や、手動での個別案内の繰り返しは、あなたの貴重な時間を奪ってしまいます。",
     recommendation: "見た目が美しいだけでなく、タップするだけで知りたい情報へスムーズに繋がる「リッチメニューの制作」と「公式LINEの導線設計」がおすすめです。登録したお客様が自然と次のステップへ進みたくなる、おもてなしの仕組みを整えましょう。"
   },
   C: {
     icon: "✦",
+    image: "https://endesign74.github.io/shindan/result_c.png",
     type: "受け皿グラグラタイプ",
     description: "ご縁や紹介でお客さまは来てくれているのに、「ホームページを見て安心した」「名刺がステキ」と言われる受け皿が整っていない。せっかくのご縁を逃しているかもしれません。",
     recommendation: "ホームページの制作・リニューアルや、集客名刺・チラシの整えがおすすめです。プロの目線で「信頼される受け皿」を一緒につくっていきましょう。"
   }
 };
-
+
 // Priority: B > A > C
 const priority = ['B', 'A', 'C'];
  
