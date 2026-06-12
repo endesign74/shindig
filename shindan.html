@@ -467,11 +467,11 @@ const results = {
 
 // Priority: B > A > C
 const priority = ['B', 'A', 'C'];
-
+ 
 let current = 0;
 let scores = { A: 0, B: 0, C: 0 };
 let history = []; // 回答履歴
-
+ 
 function renderQuestion(idx) {
   const q = questions[idx];
   const area = document.getElementById('quiz-area');
@@ -479,11 +479,11 @@ function renderQuestion(idx) {
   document.getElementById('progress-text').textContent = `Q${idx + 1} / ${questions.length}`;
   document.getElementById('progress-pct').textContent = `${pct}%`;
   document.getElementById('progress-bar').style.width = `${pct}%`;
-
+ 
   const backBtn = idx > 0
     ? `<button class="back-btn" onclick="goBack()">← 前の質問に戻る</button>`
     : '';
-
+ 
   area.innerHTML = `
     <div class="question-card">
       <p class="q-number">QUESTION ${String(idx + 1).padStart(2, '0')}</p>
@@ -500,7 +500,7 @@ function renderQuestion(idx) {
     </div>
   `;
 }
-
+ 
 function selectChoice(label) {
   history.push(label); // 回答を記録
   scores[label]++;
@@ -511,7 +511,7 @@ function selectChoice(label) {
     showResult();
   }
 }
-
+ 
 function goBack() {
   if (current <= 0) return;
   const prevLabel = history.pop(); // 直前の回答を取り消し
@@ -520,28 +520,28 @@ function goBack() {
   document.getElementById('progress-area').style.display = 'block';
   renderQuestion(current);
 }
-
+ 
 function getWinner() {
   const maxScore = Math.max(...Object.values(scores));
   const tied = priority.filter(k => scores[k] === maxScore);
   return tied[0];
 }
-
+ 
 function showResult() {
   document.getElementById('progress-area').style.display = 'none';
   const winner = getWinner();
   const r = results[winner];
   const area = document.getElementById('quiz-area');
-
+ 
   const scoreHTML = priority.map(k =>
     `<span class="score-pill ${k === winner ? 'active' : ''}">${k}：${scores[k]}問</span>`
   ).join('');
-
+ 
   area.innerHTML = `
     <div class="result-card">
       <span class="result-badge">✦ 診断結果 ✦</span>
       <div class="score-row">${scoreHTML}</div>
-      <span class="result-icon">${r.icon}</span>
+      <img class="result-image" src="${r.image}" alt="${r.type}のイラスト">
       <p class="result-type-label">あなたのタイプは…</p>
       <h2 class="result-title">${r.type}</h2>
       <div class="result-divider"></div>
@@ -551,7 +551,7 @@ function showResult() {
         <p>${r.recommendation}</p>
       </div>
       <div class="cta-wrap">
-        <a class="cta-btn" href="https://lin.ee/uGmhBDc" target="_blank" rel="noopener">右腕サポーターに作戦会議を申し込む</a>
+        <a class="cta-btn" href="https://lin.ee/uGmhBDc" target="_blank" rel="noopener">右腕秘書に作戦会議を申し込む</a>
         <p class="cta-note">※ 無料相談・お気軽にどうぞ</p>
       </div>
       <br>
@@ -559,7 +559,7 @@ function showResult() {
     </div>
   `;
 }
-
+ 
 function retryQuiz() {
   current = 0;
   scores = { A: 0, B: 0, C: 0 };
@@ -567,10 +567,10 @@ function retryQuiz() {
   document.getElementById('progress-area').style.display = 'block';
   renderQuestion(0);
 }
-
+ 
 renderQuestion(0);
 </script>
-
+ 
 <script>
 // 親ページにコンテンツの高さを送信してiframeを自動リサイズ
 function sendHeight() {
@@ -583,4 +583,6 @@ var observer = new MutationObserver(sendHeight);
 observer.observe(document.body, { childList: true, subtree: true });
 </script>
 </body>
+</html>
+ 
 </html>
